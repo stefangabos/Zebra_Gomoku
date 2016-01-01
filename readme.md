@@ -30,7 +30,9 @@ You can choose the board's size, the player who makes the first move, and a call
 Go ahead, [try it yourself](http://stefangabos.github.io/Zebra_Gomoku/)
 <br><br>
 
-###### Embedding
+<br>
+##### Embedding
+<br>
 
 This should get you started:
 
