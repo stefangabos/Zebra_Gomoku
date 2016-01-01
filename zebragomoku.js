@@ -8,8 +8,8 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.0.0 (last revision: January 01, 2016)
- *  @copyright  (c) 2016     Stefan Gabos
+ *  @version    1.0.0 (last revision: January 02, 2016)
+ *  @copyright  (c) 2016 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Gomoku
  */
@@ -75,13 +75,15 @@
                 cells = $('td', game.board);
 
                 // if the computer starts
-                if (game.settings.ai_first || (null === game.settings.ai_first && Math.round(Math.random()) == 1)) {
+                // (we use +.5|0 instead of Math.round)
+                if (game.settings.ai_first || (null === game.settings.ai_first && Math.random()+.5|0 == 1)) {
 
                     // we'll use this to make sure that whoever plays first move, plays white
                     game.settings.ai_first = 1;
 
                     // it plays the center of the board
-                    show_move(Math.floor(board_size / 2) * (1 + board_size), 1);
+                    // ~~ is short hand for Math.floor
+                    show_move(~~(board_size / 2) * (1 + board_size), 1);
 
                 // we'll use this to make sure that whoever plays first move, plays white
                 } else game.settings.ai_first = 2;
@@ -111,7 +113,7 @@
                 is_player_turn = false;
 
                 // iterate through all the board's cells
-                for (i = 0; i < board_size * board_size; i++) {
+                for (i = board_size * board_size; i--;) {
 
                     // skip to next cell if this cell is owned by the computer
                     if (board[i] == 1) continue;
@@ -130,21 +132,21 @@
                     cell_score = [0, 0];
 
                     // the 4 directions to check: vertical, horizontal, diagonal /, diagonal \ (in this order)
-                    for (j = 0; j < 4; j++) {
+                    for (j = 4; j--;) {
 
                         // the default score for the direction we're checking
                         direction_score = [0, 0];
 
                         // check the 5 possible outcomes, as described above
                         // (if we're checking whether the player won, we'll do this iteration only once, checking for 5 in a row)
-                        for (k = 0; k < (!board[i] ? 5 : 1); k++) {
+                        for (k = (!board[i] ? 5 : 1); k--;) {
 
                             // initialize the type of cells we're looking for,
                             // and the array with the cells on the current direction
                             type = board[i] || undefined; line = [];
 
                             // check the 5 pieces for each possible outcome, plus the 2 sides
-                            for (l = 0; l < 7; l++) {
+                            for (l = 7; l--;) {
 
                                 // used to compute position
                                 m = -5 + k + l;
@@ -159,7 +161,7 @@
                                     // horizontal
                                     (j == 1 &&
                                     (position = i + m) !== false &&
-                                    Math.floor(position / board_size) == Math.floor(i / board_size)) ||
+                                    ~~(position / board_size) == ~~(i / board_size)) ||
 
                                     // diagonal /
                                     (j == 2 &&
@@ -194,7 +196,8 @@
                                     // if we're not just checking the sides,
                                     // this is not an empty cell, and is of the same type as the ones we're looking for,
                                     // update the type of cells we're looking for
-                                    if (l && l != 6 && undefined === type && board[position]) type = board[position];
+                                    // (we use ^ instead of !=)
+                                    if (l && l ^ 6 && undefined === type && board[position]) type = board[position];
 
                                 // if the computed position is off-board, but this is a side-cell, save it as "undefined"
                                 } else if (!l || l == 6) line.push(undefined);
@@ -220,7 +223,7 @@
                                 consecutive_cells = 0; total_cells = 0; empty_sides = 0;
 
                                 // the total number of cells of the same type
-                                for (l = 0; l < 5; l++) if (board[line[l + 1]] == type) total_cells++;
+                                for (l = 5; l--;) if (board[line[l + 1]] == type) total_cells++;
 
                                 // look to the left of the current cell
                                 for (l = line.indexOf(i) - 1; l >= 0; l--)
@@ -277,7 +280,7 @@
 
                         // update the cell's attack and defense score
                         // (we simply sum the best scores of all 4 directions)
-                        for (k = 0; k < 2; k++) cell_score[k] += direction_score[k];
+                        for (k = 2; k--;) cell_score[k] += direction_score[k];
 
                     }
 
@@ -296,7 +299,7 @@
 
                         // or, cell's score is equal to the best score, but computer's move is better or equal to the player's,
                         // and the current best move is not *exactly* the same
-                        (j == k && cell_score[0] >= best_score[1] && cell_score[0] != best_score[1] && cell_score[1] != best_score[2])) &&
+                        (j == k && cell_score[0] >= best_score[1] && cell_score[0] ^ best_score[1] && cell_score[1] ^ best_score[2])) &&
 
                         // we're checking the score of an empty cell, or we're checking to see if the player won and he won
                         // (we don't update the score when checking if the player won *unless* the player actually won)
