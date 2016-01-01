@@ -63,7 +63,7 @@
                     if (!(i % board_size)) row = $('<tr>').appendTo(table);
 
                     // add cells to rows
-                    $('<td>').text(i).appendTo(row);
+                    $('<td>').appendTo(row);
 
                 }
 
@@ -98,7 +98,7 @@
 
                 // highlight the played cell
                 // (whoever played the first move, plays with white)
-                $(cells[index]).addClass('p' + Math.abs(type - game.settings.ai_first)).html($('<div>').append($('<span>').text(index)));
+                $(cells[index]).addClass('p' + Math.abs(type - game.settings.ai_first));
 
             },
 
