@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Zebra Gomoku</title>
+    <link rel="stylesheet" href="zebragomoku.css">
+    <style type="text/css">
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+    #game {
+        width: 800px;
+        height: 800px;
+        margin: 50px auto;
+    }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="zebragomoku.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        new $.gomoku($('#game'), {
+            ai_first: null,
+            board_size: 15,
+            onendgame: function(computer_wins) {
+                alert('You ' + (computer_wins ? 'lost' : 'won') + '!');
+            }
+        });
+
+    });
+    </script>
+</body>
+</html>
