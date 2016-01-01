@@ -28,9 +28,7 @@ You can choose the board's size, the player who makes the first move, and a call
 
 <br>
 Go ahead, [try it yourself](http://stefangabos.github.io/Zebra_Gomoku/)
-<br><br>
 
-<br>
 ##### Embedding
 <br>
 
