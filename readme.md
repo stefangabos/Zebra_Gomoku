@@ -12,7 +12,9 @@ This is probably one of the shortest implementation of the game, weighing 1848 b
 
 This started out as a weekend project but turned out to be something that took away  2 or 3 hours a day for two weeks, time spent playing endless games with other AIs (mostly [this](http://steffengerlach.de/gomoku/index.html) and [this](http://codepen.io/mudrenok/pen/gpMXgg)) in order to adjust the game formula, fixing bugs, optimizing and commenting the code. In the process I found out that there is a [championship for Gomoku AIs](http://gomocup.org/) and the best ever AI is [Yixin](http://www.aiexp.info/pages/yixin.html).
 
-###### Setup
+[Play Zebra_Gomoku now](http://stefangabos.github.io/Zebra_Gomoku/)
+
+###### How to use
 
 This should get you started:
 
