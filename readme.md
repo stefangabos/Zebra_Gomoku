@@ -18,7 +18,9 @@ You can choose the board's size, the player who makes the first move, and a call
 
 >Currently this implementation does not handle the situation where there are no more moves left. Nothing will happen in that case. That's because I couldn't find a way to handle that without writing more code :)
 
-###### Below is the minified code
+<br>
+##### The minified code
+<br>
 
 >Note that I've used Jed Schmidt's [Byte saving techniques](https://github.com/jed/140bytes/wiki/Byte-saving-techniques) to make the code a bit shorter
 
