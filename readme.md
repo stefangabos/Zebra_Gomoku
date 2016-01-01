@@ -16,7 +16,7 @@ While this AI performs decently, given the amount of code used to write it, it d
 
 You can choose the board's size, the player who makes the first move, and a callback function to be fired when somebody wins the game.
 
-*Currently this implementation does not handle the situation where there are no more moves left. Nothing will happen in that case. That's because I couldn't find a way to handle that without writing more code :) *
+*Currently this implementation does not handle the situation where there are no more moves left. Nothing will happen in that case. That's because I couldn't find a way to handle that without writing more code :)*
 
 ###### Below is the minified code
 
