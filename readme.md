@@ -20,11 +20,11 @@ This should get you started:
 	<title></title>
    	<link rel="stylesheet" href="path/to/zebragomoku.css">
     <style type="text/css">
-        #game {
-            width: 800px;
-            height: 800px;
-            margin: 50px auto;
-        }
+    #game {
+        width: 800px;
+        height: 800px;
+        margin: 50px auto;
+    }
     </style>
 </head>
 <body>
