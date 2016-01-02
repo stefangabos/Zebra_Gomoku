@@ -76,7 +76,7 @@
 
                 // if the computer starts
                 // (we use +.5|0 instead of Math.round)
-                if (game.settings.ai_first || (null === game.settings.ai_first && Math.random()+.5|0 == 1)) {
+                if (game.settings.ai_first || (null === game.settings.ai_first && Math.random()+.5|0)) {
 
                     // we'll use this to make sure that whoever plays first move, plays white
                     game.settings.ai_first = 1;
@@ -291,15 +291,12 @@
                     // if 
                     if (
 
-                        // cell's attack or defense score is greater than 0
-                        (cell_score[0] || cell_score[1]) &&
-
                         // cell's attack + defense score is better than the current best attack and defense score
                         (j > k ||
 
                         // or, cell's score is equal to the best score, but computer's move is better or equal to the player's,
                         // and the current best move is not *exactly* the same
-                        (j == k && cell_score[0] >= best_score[1] && cell_score[0] ^ best_score[1] && cell_score[1] ^ best_score[2])) &&
+                        (j == k && cell_score[0] >= best_score[1])) &&
 
                         // we're checking the score of an empty cell, or we're checking to see if the player won and he won
                         // (we don't update the score when checking if the player won *unless* the player actually won)
