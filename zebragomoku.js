@@ -3,7 +3,7 @@
  *
  *  A ridiculously small JavaScript gomoku AI implementation, as a jQuery plugin
  *
- *  Visit {@link http://stefangabos.ro/jquery/zebra-tooltips/} for more information.
+ *  Visit {@link https://github.com/stefangabos/Zebra_Gomoku} for more information.
  *
  *  For more resources visit {@link http://stefangabos.ro/}
  *
