@@ -60,7 +60,7 @@
                     board[i] = 0;
 
                     // once we add all the cells to a row, we add the row to the table
-                    if (!(i % board_size)) row = $('<tr>').appendTo(table);
+                    if (!(i % board_size)) table.append(row = $('<tr>'));
 
                     // add cells to rows
                     row.append($('<td>'));
