@@ -3,17 +3,40 @@
 <head>
     <meta charset="utf-8">
     <title>Zebra Gomoku</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://stefangabos.github.io/Zebra_Gomoku/zebragomoku.css">
-    <style type="text/css">
+    <style>
     #game {
-        width: 800px;
-        height: 800px;
+        width: 600px;
+        height: 600px;
         margin: 50px auto;
+    }
+    .container {
+        position: relative;
+    }
+    h1 small {
+        display: block;
+        font-size: .4em;
+    }
+    h1 a.back {
+        position: absolute;
+        right: 1em;
+        top: 71px;
+        font-size: .4em;
     }
     </style>
 </head>
 <body>
-    <div id="game"></div>
+    <div class="container">
+        <div class="page-header">
+                <h1>zebra<strong>Gomoku</strong>
+                <small>A ridiculously small JavaScript gomoku AI implementation, as a jQuery plugin | by <a href="https://github.com/stefangabos">Stefan Gabos</a></small>
+                <a href="https://github.com/stefangabos/Zebra_Gomoku" class="btn btn-primary back">&laquo; Back to the repository</a>
+            </h1>
+        </div>
+        <p></p>
+        <div id="game"></div>
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://stefangabos.github.io/Zebra_Gomoku/zebragomoku.min.js"></script>
     <script>
