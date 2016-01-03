@@ -8,7 +8,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.0.0 (last revision: January 02, 2016)
+ *  @version    1.0.0 (last revision: January 03, 2016)
  *  @copyright  (c) 2016 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Gomoku
@@ -63,12 +63,12 @@
                     if (!(i % board_size)) row = $('<tr>').appendTo(table);
 
                     // add cells to rows
-                    $('<td>').appendTo(row);
+                    row.append($('<td>'));
 
                 }
 
                 // append the table to the DOM
-                table.appendTo(game.board);
+                game.board.append(table);
 
                 // cache all the board's cells
                 // we'll use this to highlight cells as the game goes on
