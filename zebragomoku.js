@@ -8,7 +8,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.0.0 (last revision: January 03, 2016)
+ *  @version    1.0.0 (last revision: January 04, 2016)
  *  @copyright  (c) 2016 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Gomoku
@@ -106,7 +106,7 @@
 
             computer_move = function() {
 
-                var i, j, k, l, m, position, type, line, total_cells, consecutive_cells, empty_sides, best_score,
+                var i, j, k, l, m, n, position, type, line, total_cells, consecutive_cells, empty_sides, best_score,
                     cell_score, direction_score, score;
 
                 // set this flag to false so that the player cannot move while the computer is thinking
@@ -150,13 +150,14 @@
 
                                 // used to compute position
                                 m = -5 + k + l;
+                                n = i % board_size;
 
                                 if (
 
                                     // vertical
                                     ((j === 0 &&
                                     (position = i + (board_size * m)) !== false &&
-                                    i % board_size == position % board_size) ||
+                                    n == position % board_size) ||
 
                                     // horizontal
                                     (j == 1 &&
@@ -166,15 +167,15 @@
                                     // diagonal /
                                     (j == 2 &&
                                     (position = i - (board_size * m) + m) !== false &&
-                                    ((position > i && position % board_size < i % board_size) ||
-                                    (position < i && position % board_size > i % board_size) ||
+                                    ((position > i && position % board_size < n) ||
+                                    (position < i && position % board_size > n) ||
                                     position == i)) ||
 
                                     // diagonal \
                                     (j == 3 &&
                                     (position = i + (board_size * m) + m) !== false &&
-                                    ((position < i && position % board_size < i % board_size) ||
-                                    (position > i && position % board_size > i % board_size)) ||
+                                    ((position < i && position % board_size < n) ||
+                                    (position > i && position % board_size > n)) ||
                                     position == i)) &&
 
                                     // the position is not off-board
