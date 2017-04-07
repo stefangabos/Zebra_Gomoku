@@ -26,9 +26,7 @@ You can choose the board's size, the player who makes the first move, and a call
 (function(g){g.gomoku=function(A,B){var C={board_size:15,ai_first:null,endgame:null},h=this,e=[],c,u,v=!1,x=function(c,f){e[c]=f;g(u[c]).addClass("p"+Math.abs(f-h.s.ai_first))};(function(){h.s=g.extend({},C,B);h.board=A;c=h.s.board_size;var y=g('<table id="zebraGomoku">').on("click","td",function(){if(!v||e[u.index(this)])return!1;x(u.index(this),2);var a,q,m,b,r,n,d,k,l,f,g,p,t,w;v=!1;for(a=c*c;a--;)if(1!=e[a]){e[a]||void 0!==p||(p=[a,0,0]);t=[0,0];for(q=4;q--;){w=[0,0];for(m=e[a]?1:5;m--;){k=e[a]||void 0;l=[];for(b=7;b--;)if(r=-5+m+b,n=a%c,!((0===q&&!1!==(d=a+c*r)&&n==d%c||1==q&&!1!==(d=a+r)&&~~(d/c)==~~(a/c)||2==q&&!1!==(d=a-c*r+r)&&(d>a&&d%c<n||d<a&&d%c>n||d==a)||3==q&&!1!==(d=a+c*r+r)&&(d<a&&d%c<n||d>a&&d%c>n)||d==a)&&0<=d&&d<c*c)||e[d]!=k&&(e[a]||e[d]&&void 0!==k)&&b&&6!=b)if(b&&6!=b)break;else l.push(void 0);else l.push(d),b&&b^6&&void 0===k&&e[d]&&(k=e[d]);if(7==l.length&&void 0!==k){r=e[a]?!0:!1;e[a]=k;g=n=f=0;for(b=5;b--;)e[l[b+1]]==k&&n++;for(b=l.indexOf(a)-1;0<=b;b--)if(e[l[b]]==k)f++;else{0===e[l[b]]&&g++;break}for(b=l.indexOf(a);b<l.length;b++)if(e[l[b]]==k)f++;else{0===e[l[b]]&&g++;break}b=[[0,1],[2,3],[4,12],[10,64],[256,256]][f>=n?Math.min(f,5)-1:n-1][f>=n?g?g-1:0:0];r?256<=b&&(b=1024):e[a]=0;b>w[k-1]&&(w[k-1]=b)}}for(m=2;m--;)t[m]+=w[m]}q=t[0]+t[1];m=p[1]+p[2];(q>m||q==m&&t[0]>=p[1])&&(!e[a]||1024<=t[1])&&(p=[a,t[0],t[1]])}1024>p[2]&&x(p[0],1);(256<=p[1]||1024<=p[2])&&"function"==typeof h.s.endgame?h.s.endgame.apply(null,[1024>p[2]]):v=!0}),f,z;for(f=0;f<c*c;f++)e[f]=0,f%c||y.append(z=g("<tr>")),z.append(g("<td>"));h.board.append(y);u=g("td",h.board);h.s.ai_first||null===h.s.ai_first&&Math.random()+.5|0?(h.s.ai_first=1,x(~~(c/2)*(1+c),1)):h.s.ai_first=2;v=!0})()}})(jQuery);
 ```
 
-<br>
-Go ahead, [try it yourself](http://stefangabos.github.io/Zebra_Gomoku/).
-<br>
+Go ahead, [try it yourself](http://stefangabos.github.io/Zebra_Gomoku/)
 
 #### Embedding
 
