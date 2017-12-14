@@ -106,7 +106,7 @@
 
             computer_move = function() {
 
-                var i, j, k, l, m, n, position, type, line, total_cells, consecutive_cells, empty_sides, best_score,
+                var i, j, k, l, m, n, position, type, line, total_cells, consecutive_cells, empty_sides, best_score = [board_size * board_size - 1, 0, 0],
                     cell_score, direction_score, score;
 
                 // set this flag to false so that the player cannot move while the computer is thinking
